@@ -12,8 +12,9 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useQuery} from 'react-query';
 import getZooAnimalsService from '../services/getZooAnimals';
 import SkeletonPlaceholder from '../components/SkeletonPlaceholder';
-import {spacingSizes} from '../theme';
+import {headingSizes, spacingSizes} from '../theme';
 import ZooDetails from '../components/ZooDetails';
+
 
 const ZooScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     padding: spacingSizes.xs,
   },
   text: {
-    size: spacingSizes.md,
+    size: headingSizes.lg,
     fontWeight: 'bold',
   },
 });

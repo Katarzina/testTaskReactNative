@@ -14,40 +14,42 @@ const ZooDetails = ({zoo}: ZooDetailsProps) => {
   return (
     <View style={styles.screen}>
       <View style={styles.view}>
-        <Text style={{fontWeight: 'bold'}}>Name:</Text>
+        <Text style={styles.bold}>Name:</Text>
         <Text>{zoo.name}</Text>
         <View style={styles.row}>
-          <Text style={{fontWeight: 'bold'}}>Type:</Text>
+          <Text style={styles.bold}>Type:</Text>
           <Text>{zoo.animal_type}</Text>
         </View>
         <View style={styles.row}>
-          <Text style={{fontWeight: 'bold'}}>Length:</Text>
+          <Text style={styles.bold}>Length:</Text>
           <Text>
             {zoo.length_min}-{zoo.length_max}
           </Text>
         </View>
         <View style={styles.row}>
-          <Text style={{fontWeight: 'bold'}}>Weight:</Text>
+          <Text style={styles.bold}>Weight:</Text>
           <Text>
             {zoo.weight_min}-{zoo.weight_max}
           </Text>
         </View>
-        <Text style={{fontWeight: 'bold'}}>Geo Range:</Text>
+        <Text style={styles.bold}>Geo Range:</Text>
         <Text>{zoo.geo_range}</Text>
       </View>
-      {loadingImage && (
-        <View style={styles.zoo}>
-          <Spinner color="dark" size="sm" />
-        </View>
-      )}
-      <FastImage
-        style={{width: 150, height: 120}}
-        source={{
-          uri: zoo.image_link,
-          priority: FastImage.priority.normal,
-        }}
-        onLoadEnd={() => setLoadingImage(false)}
-      />
+      <View style={styles.fastImage}>
+        <FastImage
+          style={styles.fastImage}
+          source={{
+            uri: zoo.image_link,
+          }}
+          onLoadStart={() => setLoadingImage(true)}
+          onLoadEnd={() => setLoadingImage(false)}>
+          {loadingImage && (
+            <View style={styles.zoo}>
+              <Spinner color="dark" size="sm" />
+            </View>
+          )}
+        </FastImage>
+      </View>
     </View>
   );
 };
@@ -78,5 +80,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.dark,
     borderRadius: 15,
+  },
+  fastImage: {
+    width: 150,
+    height: 120,
+  },
+  bold: {
+    fontWeight: 'bold',
   },
 });

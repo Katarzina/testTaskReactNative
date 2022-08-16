@@ -1,48 +1,7 @@
 export const colors = {
   light: '#ffffff',
   dark: '#263238',
-  transparentDark: '#26323880',
-  transparent: '#ffffff00',
-  primary100: '#e7f7f7',
-  primary200: '#b9e9e7',
-  primary300: '#8bdbd8',
-  primary400: '#5ccdc8',
-  primary500: '#00b1aa',
-  primary600: '#00918c',
-  primary700: '#00716d',
-  primary800: '#00514e',
-  primary900: '#00312f',
-  gray50: '#fafafa',
-  gray75: '#f5f5f5',
-  gray100: '#f5f7f7',
-  gray150: '#f1f5f9',
   gray200: '#eeeeee',
-  gray250: '#dcdbdc',
-  gray300: '#e0e0e0',
-  gray350: '#ebecec',
-  gray400: '#bdbdbd',
-  gray450: '#b5b5b5',
-  gray500: '#9e9e9e',
-  gray550: '#9ca1a4',
-  gray600: '#757575',
-  gray650: '#78909c',
-  gray700: '#616161',
-  gray750: '#888f92',
-  gray800: '#424242',
-  gray850: '#4D575C',
-  gray900: '#212121',
-  red50: '#FFDFDA',
-  red100: '#ffcdd2',
-  red150: '#f5f7f7',
-  red200: '#ef9a9a',
-  red300: '#e57373',
-  red400: '#ef5350',
-  red500: '#f44336',
-  red600: '#e53935',
-  red650: '#de3618',
-  red700: '#d32f2f',
-  red800: '#c62828',
-  red900: '#b71c1c',
 };
 
 export const headingSizes = {
@@ -59,14 +18,6 @@ export const textSizes = {
   md: 16,
   lg: 18,
   xl: 20,
-};
-
-export const lineHeights = {
-  xs: 16,
-  sm: 20,
-  md: 22,
-  lg: 24,
-  xl: 26,
 };
 
 export const spacingSizes = {
