@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   useColorScheme,
   Text,
@@ -12,10 +11,9 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useQuery} from 'react-query';
 import getZooAnimalsService from '../services/getZooAnimals';
-import {ZooType} from '../models/zoo';
-import FastImage from 'react-native-fast-image';
 import SkeletonPlaceholder from '../components/SkeletonPlaceholder';
 import {spacingSizes} from '../theme';
+import ZooDetails from '../components/ZooDetails';
 
 const ZooScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -28,9 +26,6 @@ const ZooScreen = () => {
     queryFn: () => getZooAnimalsService(),
     queryKey: ['zoo'],
   });
-
-  console.log(zoo, 'zoo');
-  console.log(isLoading, 'isLoading');
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -73,23 +68,11 @@ const ZooScreen = () => {
           stickyHeaderIndices={[0]}
           ListHeaderComponent={
             <View style={styles.screen}>
-              <Text>Zoo list</Text>
+              <Text style={styles.text}>Zoo list</Text>
             </View>
           }
           ListEmptyComponent={<Text>No zoo found</Text>}
-          renderItem={({item}) => (
-            <View style={styles.screen}>
-              <Text>{item.name}</Text>
-              <FastImage
-                style={{width: 150, height: 120}}
-                source={{
-                  uri: item.image_link,
-                  priority: FastImage.priority.normal,
-                }}
-                resizeMode={FastImage.resizeMode.contain}
-              />
-            </View>
-          )}
+          renderItem={({item}) => <ZooDetails zoo={item} />}
         />
       )}
     </SafeAreaView>
@@ -102,5 +85,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: spacingSizes.xs,
+  },
+  text: {
+    size: spacingSizes.md,
+    fontWeight: 'bold',
   },
 });
