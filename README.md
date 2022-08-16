@@ -19,8 +19,8 @@ Some test task on position React Native developer.
 ### Steps
 
 1. In the root folder, run `yarn install` to install dependencies
-2. For IOS, in the root folder, run `yarn pod` to link IOS dependencies
-3. Run `react-native link` to link assets, fonts and images
+2. Then `yarn start` 
+3. For IOS, in the root folder, run `yarn pod` to link IOS dependencies
 4. To run on Android, open an Android emulator from `Android Studio` and run `yarn android`
 5. To run on IOS, just run `yarn ios` (macOS only)
 
