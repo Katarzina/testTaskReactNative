@@ -65,7 +65,6 @@ const ZooScreen = () => {
         <FlatList
           data={zoo}
           keyExtractor={(item, index) => String(index)}
-          stickyHeaderIndices={[0]}
           ListHeaderComponent={
             <View style={styles.screen}>
               <Text style={styles.text}>Zoo list</Text>
