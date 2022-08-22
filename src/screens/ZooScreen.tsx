@@ -7,15 +7,16 @@ import {
   FlatList,
   View,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {useQuery} from 'react-query';
-import getZooAnimalsService from '../services/getZooAnimals';
+import getZooAnimalsService from '../services/getZooAnumals';
 import SkeletonPlaceholder from '../components/SkeletonPlaceholder';
 import {headingSizes, spacingSizes} from '../theme';
 import ZooDetails from '../components/ZooDetails';
 
-
+export const WIDTH = Dimensions.get('window').width;
 const ZooScreen = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -34,31 +35,29 @@ const ZooScreen = () => {
       {isLoading ? (
         <View style={{minHeight: 84, justifyContent: 'center'}}>
           <SkeletonPlaceholder>
-            <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+            <SkeletonPlaceholder.Item
+              alignItems="center"
+              marginLeft={spacingSizes.md}>
               <SkeletonPlaceholder.Item
-                width={46}
-                height={46}
-                borderRadius={5}
+                width={WIDTH - 50}
+                height={100}
+                borderRadius={4}
               />
-              <SkeletonPlaceholder.Item marginLeft={spacingSizes.md}>
-                <SkeletonPlaceholder.Item
-                  width={140}
-                  height={16}
-                  borderRadius={4}
-                />
-                <SkeletonPlaceholder.Item
-                  width={240}
-                  height={12}
-                  marginTop={6}
-                  borderRadius={4}
-                />
-                <SkeletonPlaceholder.Item
-                  width={240}
-                  height={12}
-                  marginTop={6}
-                  borderRadius={4}
-                />
-              </SkeletonPlaceholder.Item>
+              <SkeletonPlaceholder.Item
+                width={WIDTH - 50}
+                height={100}
+                borderRadius={4}
+              />
+              <SkeletonPlaceholder.Item
+                width={WIDTH - 50}
+                height={100}
+                borderRadius={4}
+              />
+              <SkeletonPlaceholder.Item
+                width={WIDTH - 50}
+                height={100}
+                borderRadius={4}
+              />
             </SkeletonPlaceholder.Item>
           </SkeletonPlaceholder>
         </View>
